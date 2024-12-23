@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scratch Game Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    header {
+      background-color: #6200ea;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #6200ea;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .game {
+      margin: 20px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .game h3 {
+      margin: 0 0 10px;
+    }
+    .game a {
+      color: #6200ea;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Scratch Game Hub</h1>
+  </header>
+  <div class="container">
+    <section id="upload-instructions">
+      <h2>Submit Your Game</h2>
+      <p>To have your Scratch game uploaded, please fill out the form below and click "Submit." This will send an email to <strong>Titanbrix@outlook.com</strong>.</p>
+      <form id="email-form" onsubmit="sendEmail(); return false;">
+        <label for="game-name">Game Name:</label>
+        <input type="text" id="game-name" placeholder="Enter the game name" required>
+        
+        <label for="game-link">Scratch Project URL:</label>
+        <input type="url" id="game-link" placeholder="https://scratch.mit.edu/projects/..." required>
+        
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section id="games-section">
+      <h2>Games</h2>
+      <div id="games-list">
+        <div class="game">
+          <h3>Sample Game 1</h3>
+          <p>Uploaded by: Titanbrix</p>
+          <a href="https://scratch.mit.edu/projects/sample1" target="_blank">Play Game</a>
+        </div>
+        <div class="game">
+          <h3>Sample Game 2</h3>
+          <p>Uploaded by: Titanbrix</p>
+          <a href="https://scratch.mit.edu/projects/sample2" target="_blank">Play Game</a>
+        </div>
+        <!-- Add more games here manually -->
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Function to send email using mailto
+    function sendEmail() {
+      const gameName = document.getElementById('game-name').value;
+      const gameLink = document.getElementById('game-link').value;
+
+      const subject = encodeURIComponent(`New Scratch Game Submission: ${gameName}`);
+      const body = encodeURIComponent(`Game Name: ${gameName}\nScratch Project URL: ${gameLink}`);
+      
+      const mailtoLink = `mailto:Titanbrix@outlook.com?subject=${subject}&body=${body}`;
+      window.location.href = mailtoLink;
+
+      alert('Your submission email has been opened in your email client. Please send the email to complete the submission.');
+    }
+  </script>
+</body>
+</html>
