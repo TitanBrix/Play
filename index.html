@@ -9,20 +9,23 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f9;
+      background-image: url('bg.png'); /* Set bg.png as background image */
+      background-size: cover; /* Ensure the image covers the entire screen */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Prevent the image from repeating */
     }
     header {
       width: 100%;
       overflow: hidden;
     }
     header img {
-      width: 100%; /* This will stretch the image to fill the entire width of the screen */
+      width: 100%; /* Stretch the image across the width */
       height: auto; /* Maintain aspect ratio */
     }
     .container {
       max-width: 800px;
       margin: 20px auto;
-      background: white;
+      background: white; /* White background for the content area */
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
