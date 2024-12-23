@@ -17,17 +17,28 @@
     header {
       width: 100%;
       overflow: hidden;
-      text-align: center;
       padding-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
     }
     header img {
       width: 100%;
       height: auto;
     }
-    header iframe {
-      width: 360px;
-      height: 280px;
-      margin-top: 10px;
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px; /* Space between image and text */
+    }
+    .header-content img {
+      width: 300px; /* Adjust image size as needed */
+      height: auto;
+    }
+    .header-text {
+      max-width: 400px; /* Control text width */
     }
     .container {
       max-width: 800px;
@@ -81,10 +92,14 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="TitanBrix Logo">
-    
-    <!-- Embed YouTube video below the logo -->
-    <iframe width="360" height="280" src="https://www.youtube.com/embed/zwN_1K_jPdc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- Flexbox container for image and text -->
+    <div class="header-content">
+      <img src="why.png" alt="Why Image">
+      <div class="header-text">
+        <h2>Why Choose TitanBrix?</h2>
+        <p>At TitanBrix, we offer a unique platform for you to share your creativity. Submit your games and showcase your work to the world! Our community supports your effort to create without worrying about copyright issues. Join us today and get involved in the fun!</p>
+      </div>
+    </div>
   </header>
   
   <div class="container">
