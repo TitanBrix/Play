@@ -6,7 +6,7 @@
   <title>TitanBrix - Home</title>
   <style>
     body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
       margin: 0;
       padding: 0;
       background-image: url('bg.png');
@@ -24,53 +24,32 @@
       width: 100%;
       height: auto;
     }
-
-    /* Flex container for the image + text box and the submit game box */
-    .top-content-wrapper {
+    .header-content {
       display: flex;
       justify-content: space-between;
-      margin-top: 40px; /* Increased margin for more gap */
-      padding: 20px;
-      gap: 40px; /* Gap between the left and right boxes */
-    }
-
-    /* Submit Game Box */
-    .submit-game-box {
-      max-width: 45%; /* Adjust width of the submit game box */
-      background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+      align-items: center;
+      margin: 20px auto;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.9);
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      min-height: 400px; /* Ensures both boxes have the same height */
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
-
-    .header-content-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-      border-radius: 15px; /* Rounded corners */
-      padding: 20px;
-      max-width: 50%; /* Adjust size to fit layout */
-      min-height: 400px; /* Ensures both boxes have the same height */
-    }
-
-    .header-content-wrapper img {
-      max-width: 25%; /* Image size */
+    .header-content img {
+      width: 150px; /* Adjust image size */
       height: auto;
-      margin-right: 20px; /* Space between the image and the text */
     }
-
     .header-text {
-      max-width: 70%; /* Control the width of the text, adjust as needed */
+      flex: 1;
+      margin-left: 20px;
     }
-
     .container {
+      display: flex;
+      gap: 20px;
       max-width: 800px;
       margin: 20px auto;
+    }
+    .container .box {
+      flex: 1;
       background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
       padding: 20px;
       border-radius: 8px;
@@ -123,64 +102,63 @@
     <img src="logo.png" alt="TitanBrix Logo">
   </header>
 
-  <!-- Flex container for the image + text box and the submit game box -->
-  <div class="top-content-wrapper">
-    <!-- Left side: Submit Your Game Box -->
-    <div class="submit-game-box">
-      <h2>Submit Your Game</h2>
-      <p>To have your Scratch game uploaded, please fill out the form below and click "Submit." This will send an email to <strong>Titanbrix@outlook.com</strong>. To make sure it uploads, make sure it DOESN'T contain copyrighted material! I shall moderate if you used our template. Make sure that YOU DO. Not to mention that you MUST include your username. Thanks.</p>
-      <form id="email-form" onsubmit="sendEmail(); return false;">
-        <label for="game-name">Game Name:</label>
-        <input type="text" id="game-name" placeholder="Enter the game name" required>
-        
-        <label for="game-link">Scratch Project URL:</label>
-        <input type="url" id="game-link" placeholder="https://scratch.mit.edu/projects/..." required>
-        
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-
-    <!-- Right side: TitanBrix image + text -->
-    <div class="header-content-wrapper">
-      <img src="why.png" alt="Why Image">
-      <div class="header-text">
-        <h2>TitanBrix? What the flip is that?!</h2>
-        <p>1) At TitanBrix, we offer a unique platform for you to share your creativity. 2) Submit your games and showcase your work to the world! 3) Our community supports your effort to create without worrying, so join us today and get involved in the fun!</p>
-      </div>
+  <!-- Add 'why.png' Image Below the Logo -->
+  <div class="header-content">
+    <img src="why.png" alt="Why Image">
+    <div class="header-text">
+      <h2>TitanBrix? What the flip is that?!</h2>
+      <p>1) At TitanBrix, we offer a unique platform for you to share your creativity. 2) Submit your games and showcase your work to the world! 3) Our community supports your effort to create without worrying, so join us today and get involved in the fun!</p>
     </div>
   </div>
 
   <div class="container">
-    <section id="games-section">
-      <h2>Games</h2>
-      <div id="games-list">
-        <!-- Template Game with redirect on click -->
-        <div class="game">
-          <h3>TEMPLATE</h3>
-          <p>Uploaded by: TitanBrix</p>
-          <a href="https://scratch.mit.edu/projects/1113918259/" target="_blank">Play Game</a>
-        </div>
-
-        <!-- Other games with hidden iframe behavior -->
-        <div class="game">
-          <h3>NOOB SONG!</h3>
-          <p>Uploaded by: Castle_crasher_1000</p>
-          <a href="javascript:void(0);" onclick="showIframe('game2');" aria-label="Play Game - NOOB SONG!">Play Game</a>
+    <div class="box">
+      <section id="upload-instructions">
+        <h2>Submit Your Game</h2>
+        <p>To have your Scratch game uploaded, please fill out the form below and click "Submit." This will send an email to <strong>Titanbrix@outlook.com</strong>. To make sure it uploads, make sure it DOESN'T contain copyrighted material! I shall moderate if you used our template. Make sure that YOU DO. Not to mention that you MUST include your username. Thanks.</p>
+        <form id="email-form" onsubmit="sendEmail(); return false;">
+          <label for="game-name">Game Name:</label>
+          <input type="text" id="game-name" placeholder="Enter the game name" required>
           
-          <!-- Hidden iframe -->
-          <iframe id="game2" src="https://scratch.mit.edu/projects/195654195/embed" allowtransparency="true"></iframe>
-        </div>
-
-        <div class="game">
-          <h3>Coming soooon!</h3>
-          <p>Uploaded by: Another User</p>
-          <a href="javascript:void(0);" onclick="showIframe('game3');" aria-label="Play Game - Coming soooon!">Play Game</a>
+          <label for="game-link">Scratch Project URL:</label>
+          <input type="url" id="game-link" placeholder="https://scratch.mit.edu/projects/..." required>
           
-          <!-- Hidden iframe -->
-          <iframe id="game3" src="https://scratch.mit.edu/projects/PROJECT_ID/embed" allowtransparency="true"></iframe>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </div>
+    <div class="box">
+      <section id="games-section">
+        <h2>Games</h2>
+        <div id="games-list">
+          <!-- Template Game with redirect on click -->
+          <div class="game">
+            <h3>TEMPLATE</h3>
+            <p>Uploaded by: TitanBrix</p>
+            <a href="https://scratch.mit.edu/projects/1113918259/" target="_blank">Play Game</a>
+          </div>
+
+          <!-- Other games with hidden iframe behavior -->
+          <div class="game">
+            <h3>NOOB SONG!</h3>
+            <p>Uploaded by: Castle_crasher_1000</p>
+            <a href="javascript:void(0);" onclick="showIframe('game2');" aria-label="Play Game - NOOB SONG!">Play Game</a>
+            
+            <!-- Hidden iframe -->
+            <iframe id="game2" src="https://scratch.mit.edu/projects/195654195/embed" allowtransparency="true"></iframe>
+          </div>
+
+          <div class="game">
+            <h3>Coming soooon!</h3>
+            <p>Uploaded by: Another User</p>
+            <a href="javascript:void(0);" onclick="showIframe('game3');" aria-label="Play Game - Coming soooon!">Play Game</a>
+            
+            <!-- Hidden iframe -->
+            <iframe id="game3" src="https://scratch.mit.edu/projects/PROJECT_ID/embed" allowtransparency="true"></iframe>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 
   <script>
