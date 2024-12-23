@@ -12,10 +12,12 @@
       background-color: #f4f4f9;
     }
     header {
-      background-color: #6200ea;
-      color: white;
-      padding: 1rem;
-      text-align: center;
+      width: 100%;
+      overflow: hidden;
+    }
+    header img {
+      width: 100%; /* This will stretch the image to fill the entire width of the screen */
+      height: auto; /* Maintain aspect ratio */
     }
     .container {
       max-width: 800px;
@@ -62,8 +64,10 @@
 </head>
 <body>
   <header>
-    <h1>TitanBrix</h1>
+    <!-- Make sure the file name matches the one you uploaded to GitHub -->
+    <img src="logo.png" alt="TitanBrix Logo">
   </header>
+  
   <div class="container">
     <section id="upload-instructions">
       <h2>Submit Your Game</h2>
@@ -88,7 +92,6 @@
           <p>Uploaded by: TitanBrix</p>
           <a href="https://scratch.mit.edu/projects/1113918259/" target="_blank">Play Game</a>
         </div>
-
       </div>
     </section>
   </div>
@@ -105,7 +108,7 @@
       const mailtoLink = `mailto:Titanbrix@outlook.com?subject=${subject}&body=${body}`;
       window.location.href = mailtoLink;
 
-      alert('Your submission email has been opened in your email client. Please send the email to complete the submission. Make sure it explains the name, the link and whever it has been used with our telmplate or not! Include your username.');
+      alert('Your submission email has been opened in your email client. Please send the email to complete the submission. Make sure it explains the name, the link, and whether it has been used with our template or not! Include your username.');
     }
   </script>
 </body>
