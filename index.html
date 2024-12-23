@@ -25,16 +25,18 @@
       height: auto;
     }
     .header-content {
-      text-align: center;
-      margin-top: 20px; /* Space between logo and 'why.png' */
+      display: flex;
+      justify-content: center; /* Align items horizontally */
+      align-items: center; /* Align items vertically */
+      margin-top: 20px;
     }
     .header-content img {
-      width: 300px; /* Adjust image size as needed */
+      max-width: 50%; /* Make the image 50% of the container width (adjust as needed) */
       height: auto;
+      margin-right: 20px; /* Space between the image and the text */
     }
     .header-text {
-      max-width: 400px; /* Control text width */
-      margin: 0 auto;
+      max-width: 400px; /* Control the width of the text */
     }
     .container {
       max-width: 800px;
