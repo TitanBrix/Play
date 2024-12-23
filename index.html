@@ -24,20 +24,30 @@
       width: 100%;
       height: auto;
     }
-    .header-content {
+
+    /* New section for image and text with a separate semi-transparent background */
+    .header-content-wrapper {
       display: flex;
-      justify-content: center; /* Align items horizontally */
-      align-items: center; /* Align items vertically */
+      justify-content: center;
+      align-items: center;
       margin-top: 20px;
+      background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+      border-radius: 15px; /* Rounded corners */
+      padding: 20px;
+      max-width: 800px;
+      margin: 20px auto; /* Centered on the page */
     }
-    .header-content img {
-      max-width: 50%; /* Make the image 50% of the container width (adjust as needed) */
+
+    .header-content-wrapper img {
+      max-width: 25%; /* Image is now smaller, 25% of the container */
       height: auto;
       margin-right: 20px; /* Space between the image and the text */
     }
+
     .header-text {
-      max-width: 400px; /* Control the width of the text */
+      max-width: 70%; /* Control the width of the text, adjust as needed */
     }
+
     .container {
       max-width: 800px;
       margin: 20px auto;
@@ -93,8 +103,8 @@
     <img src="logo.png" alt="TitanBrix Logo">
   </header>
 
-  <!-- Add 'why.png' Image Below the Logo -->
-  <div class="header-content">
+  <!-- New section with a semi-transparent curved background -->
+  <div class="header-content-wrapper">
     <img src="why.png" alt="Why Image">
     <div class="header-text">
       <h2>TitanBrix? What the flip is that?!</h2>
