@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TitanBrix - Home</title>
   <style>
-    /* Apply Comic Sans font to the whole page */
     body {
-      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-image: url('bg.png');
@@ -15,157 +14,140 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-
-    /* Header styles */
     header {
       width: 100%;
       overflow: hidden;
-      text-align: center;
-      padding: 20px;
     }
-
-    header video {
+    header img {
       width: 100%;
       height: auto;
     }
-
-    /* Navigation (Tabs) */
-    nav {
-      text-align: center;
-      margin-top: 20px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      margin: 0 20px;
-      padding: 12px 25px;
-      background-color: #6200ea;
-      border-radius: 5px;
-    }
-    nav a:hover {
-      background-color: #4b00b1;
-    }
-
-    /* Content container */
     .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent for better background view */
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
-    .section-title {
-      font-size: 24px;
-      text-align: center;
+    form {
       margin-bottom: 20px;
     }
-
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #6200ea;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
     .game {
       margin: 20px 0;
+      padding: 10px;
       border: 1px solid #ddd;
       border-radius: 8px;
-      padding: 15px;
-      text-align: center;
     }
-
     .game h3 {
       margin: 0 0 10px;
     }
-
     .game a {
-      display: inline-block;
-      background-color: #6200ea;
-      color: white;
+      color: #6200ea;
       text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 5px;
     }
-
-    .game a:hover {
-      background-color: #5a00d3;
-    }
-
     iframe {
       width: 100%;
-      height: 400px;
+      height: 400px; /* Adjust as needed */
       border: none;
-      display: none;
+      display: none; /* Initially hidden */
       margin-top: 20px;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
     }
   </style>
 </head>
 <body>
   <header>
-    <!-- Video at the top of the page -->
-    <video controls>
-      <source src="your-video.mp4" type="video/mp4"> <!-- Replace with your video path -->
-      Your browser does not support the video tag.
-    </video>
+    <img src="logo.png" alt="TitanBrix Logo">
   </header>
   
-  <!-- Navigation bar (Tabs) -->
-  <nav>
-    <a href="#upload-instructions">Submit Game</a>
-    <a href="#games-section">Games</a>
-  </nav>
-
   <div class="container">
-    <!-- Submit Game Section -->
     <section id="upload-instructions">
-      <h2 class="section-title">Submit Your Game</h2>
-      <p>Want to see your game on TitanBrix? Click the button below to upload your Scratch project! Please make sure your game doesn't contain copyrighted material.</p>
-      <a href="mailto:Titanbrix@outlook.com" class="upload-btn">Upload Your Game</a>
+      <h2>Submit Your Game</h2>
+      <p>To have your Scratch game uploaded, please fill out the form below and click "Submit." This will send an email to <strong>Titanbrix@outlook.com</strong>. To make sure it uploads, make sure it DOESN'T contain copyrighted material! I shall moderate if you used our template. Make sure that YOU DO. Not to mention that you MUST include your username. Thanks.</p>
+      <form id="email-form" onsubmit="sendEmail(); return false;">
+        <label for="game-name">Game Name:</label>
+        <input type="text" id="game-name" placeholder="Enter the game name" required>
+        
+        <label for="game-link">Scratch Project URL:</label>
+        <input type="url" id="game-link" placeholder="https://scratch.mit.edu/projects/..." required>
+        
+        <button type="submit">Submit</button>
+      </form>
     </section>
 
-    <!-- Games Section -->
     <section id="games-section">
-      <h2 class="section-title">Featured Games</h2>
+      <h2>Games</h2>
+      <div id="games-list">
+        <!-- Template Game with redirect on click -->
+        <div class="game">
+          <h3>TEMPLATE</h3>
+          <p>Uploaded by: TitanBrix</p>
+          <a href="https://scratch.mit.edu/projects/1113918259/" target="_blank">Play Game</a>
+        </div>
 
-      <div class="game">
-        <h3>TEMPLATE</h3>
-        <p>Uploaded by: TitanBrix</p>
-        <a href="https://scratch.mit.edu/projects/1113918259/" target="_blank">Play Game</a>
-      </div>
+        <!-- Other games with hidden iframe behavior -->
+        <div class="game">
+          <h3>NOOB SONG!</h3>
+          <p>Uploaded by: Castle_crasher_1000</p>
+          <a href="javascript:void(0);" onclick="showIframe('game2');">Play Game</a>
+          
+          <!-- Hidden iframe -->
+          <iframe id="game2" src="https://scratch.mit.edu/projects/195654195/embed" allowtransparency="true"></iframe>
+        </div>
 
-      <div class="game">
-        <h3>NOOB SONG!</h3>
-        <p>Uploaded by: Castle_crasher_1000</p>
-        <a href="javascript:void(0);" onclick="showIframe('game2');">Play Game</a>
-        <iframe id="game2" src="https://scratch.mit.edu/projects/195654195/embed" allowtransparency="true"></iframe>
-      </div>
-
-      <div class="game">
-        <h3>Coming soooon!</h3>
-        <p>Uploaded by: Another User</p>
-        <a href="javascript:void(0);" onclick="showIframe('game3');">Play Game</a>
-        <iframe id="game3" src="https://scratch.mit.edu/projects/PROJECT_ID/embed" allowtransparency="true"></iframe>
+        <div class="game">
+          <h3>Coming soooon!</h3>
+          <p>Uploaded by: Another User</p>
+          <a href="javascript:void(0);" onclick="showIframe('game3');">Play Game</a>
+          
+          <!-- Hidden iframe -->
+          <iframe id="game3" src="https://scratch.mit.edu/projects/PROJECT_ID/embed" allowtransparency="true"></iframe>
+        </div>
       </div>
     </section>
   </div>
 
-
-  <!-- Script to handle iframe visibility toggling -->
   <script>
+    // Function to display the iframe when the "Play Game" link is clicked
     function showIframe(gameId) {
       const iframe = document.getElementById(gameId);
+      // Toggle the display property between none and block
       if (iframe.style.display === "none" || iframe.style.display === "") {
         iframe.style.display = "block";
       } else {
         iframe.style.display = "none";
       }
+    }
+
+    // Function to send email using mailto
+    function sendEmail() {
+      const gameName = document.getElementById('game-name').value;
+      const gameLink = document.getElementById('game-link').value;
+
+      const subject = encodeURIComponent(New Scratch Game Submission: ${gameName});
+      const body = encodeURIComponent(Game Name: ${gameName}\nScratch Project URL: ${gameLink});
+      
+      const mailtoLink = mailto:Titanbrix@outlook.com?subject=${subject}&body=${body};
+      window.location.href = mailtoLink;
+
+      alert('Your submission email has been opened in your email client. Please send the email to complete the submission. Make sure it explains the name, the link, and whether it has been used with our template or not! Include your username.');
     }
   </script>
 </body>
