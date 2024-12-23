@@ -59,10 +59,16 @@
     .game h3 {
       margin: 0 0 10px;
     }
-    .game iframe {
+    .game a {
+      color: #6200ea;
+      text-decoration: none;
+    }
+    iframe {
       width: 100%;
-      height: 400px; /* You can adjust the height if needed */
+      height: 400px; /* Adjust as needed */
       border: none;
+      display: none; /* Initially hidden */
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -89,19 +95,33 @@
     <section id="games-section">
       <h2>Games</h2>
       <div id="games-list">
-        <!-- Game Example with embedded iframe -->
+        <!-- Example Game with hidden iframe -->
         <div class="game">
           <h3>TEMPLATE</h3>
           <p>Uploaded by: TitanBrix</p>
-          <iframe src="https://scratch.mit.edu/projects/1113918259/embed" allowtransparency="true" frameborder="0"></iframe>
+          <a href="javascript:void(0);" onclick="showIframe('game1');">Play Game</a>
+          
+          <!-- Hidden iframe -->
+          <iframe id="game1" src="https://scratch.mit.edu/projects/1113918259/embed" allowtransparency="true"></iframe>
         </div>
-        
-        <!-- Add more games here with iframes as needed -->
+
+        <!-- Add more games here with similar structure -->
       </div>
     </section>
   </div>
 
   <script>
+    // Function to display the iframe when the "Play Game" link is clicked
+    function showIframe(gameId) {
+      const iframe = document.getElementById(gameId);
+      // Toggle the display property between none and block
+      if (iframe.style.display === "none" || iframe.style.display === "") {
+        iframe.style.display = "block";
+      } else {
+        iframe.style.display = "none";
+      }
+    }
+
     // Function to send email using mailto
     function sendEmail() {
       const gameName = document.getElementById('game-name').value;
