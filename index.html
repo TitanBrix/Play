@@ -6,7 +6,7 @@
   <title>TitanBrix - Home</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       margin: 0;
       padding: 0;
       background-image: url('bg.png');
@@ -25,7 +25,7 @@
     .container {
       max-width: 800px;
       margin: 20px auto;
-      background: white;
+      background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -106,7 +106,7 @@
         <div class="game">
           <h3>NOOB SONG!</h3>
           <p>Uploaded by: Castle_crasher_1000</p>
-          <a href="javascript:void(0);" onclick="showIframe('game2');">Play Game</a>
+          <a href="javascript:void(0);" onclick="showIframe('game2');" aria-label="Play Game - NOOB SONG!">Play Game</a>
           
           <!-- Hidden iframe -->
           <iframe id="game2" src="https://scratch.mit.edu/projects/195654195/embed" allowtransparency="true"></iframe>
@@ -115,7 +115,7 @@
         <div class="game">
           <h3>Coming soooon!</h3>
           <p>Uploaded by: Another User</p>
-          <a href="javascript:void(0);" onclick="showIframe('game3');">Play Game</a>
+          <a href="javascript:void(0);" onclick="showIframe('game3');" aria-label="Play Game - Coming soooon!">Play Game</a>
           
           <!-- Hidden iframe -->
           <iframe id="game3" src="https://scratch.mit.edu/projects/PROJECT_ID/embed" allowtransparency="true"></iframe>
@@ -141,10 +141,10 @@
       const gameName = document.getElementById('game-name').value;
       const gameLink = document.getElementById('game-link').value;
 
-      const subject = encodeURIComponent(New Scratch Game Submission: ${gameName});
-      const body = encodeURIComponent(Game Name: ${gameName}\nScratch Project URL: ${gameLink});
+      const subject = encodeURIComponent(`New Scratch Game Submission: ${gameName}`);
+      const body = encodeURIComponent(`Game Name: ${gameName}\nScratch Project URL: ${gameLink}`);
       
-      const mailtoLink = mailto:Titanbrix@outlook.com?subject=${subject}&body=${body};
+      const mailtoLink = `mailto:Titanbrix@outlook.com?subject=${subject}&body=${body}`;
       window.location.href = mailtoLink;
 
       alert('Your submission email has been opened in your email client. Please send the email to complete the submission. Make sure it explains the name, the link, and whether it has been used with our template or not! Include your username.');
