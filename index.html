@@ -67,7 +67,7 @@
   <div class="container">
     <section id="upload-instructions">
       <h2>Submit Your Game</h2>
-      <p>To have your Scratch game uploaded, please fill out the form below and click "Submit." This will send an email to <strong>Titanbrix@outlook.com</strong>.</p>
+      <p>To have your Scratch game uploaded, please fill out the form below and click "Submit." This will send an email to <strong>Titanbrix@outlook.com</strong>. To make sure it uploads, make sure it DOESN'T contain copyrighted material! I shall moderate if you used our template. Make sure that YOU DO.</p>
       <form id="email-form" onsubmit="sendEmail(); return false;">
         <label for="game-name">Game Name:</label>
         <input type="text" id="game-name" placeholder="Enter the game name" required>
@@ -82,17 +82,8 @@
     <section id="games-section">
       <h2>Games</h2>
       <div id="games-list">
-        <div class="game">
-          <h3>Sample Game 1</h3>
-          <p>Uploaded by: Titanbrix</p>
-          <a href="https://scratch.mit.edu/projects/sample1" target="_blank">Play Game</a>
-        </div>
-        <div class="game">
-          <h3>Sample Game 2</h3>
-          <p>Uploaded by: Titanbrix</p>
-          <a href="https://scratch.mit.edu/projects/sample2" target="_blank">Play Game</a>
-        </div>
         <!-- Add more games here manually -->
+        
       </div>
     </section>
   </div>
@@ -109,7 +100,7 @@
       const mailtoLink = `mailto:Titanbrix@outlook.com?subject=${subject}&body=${body}`;
       window.location.href = mailtoLink;
 
-      alert('Your submission email has been opened in your email client. Please send the email to complete the submission.');
+      alert('Your submission email has been opened in your email client. Please send the email to complete the submission. Make sure it explains the name, the link and whever it has been used with our telmplate or not!');
     }
   </script>
 </body>
