@@ -22,38 +22,24 @@
     }
     header img {
       width: 100%;
-      height: auto;
     }
-    .header-content {
+    .flex-container {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin: 20px auto;
-      max-width: 800px;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border-radius: 8px;
-    }
-    .header-content img {
-      width: 150px; /* Adjust image size */
-      height: auto;
-    }
-    .header-text {
-      flex: 1;
-      margin-left: 20px;
-    }
-    .container {
-      display: flex;
       gap: 20px;
-      max-width: 800px;
       margin: 20px auto;
+      max-width: 800px;
     }
-    .container .box {
+    .flex-container .box {
       flex: 1;
       background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
     }
     form {
       margin-bottom: 20px;
@@ -62,7 +48,7 @@
       display: block;
       margin-bottom: 5px;
     }
-    input, textarea, button {
+    input, button {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
@@ -74,6 +60,12 @@
       color: white;
       border: none;
       cursor: pointer;
+    }
+    .games-section {
+      margin-top: 40px;
+    }
+    .games-section h2 {
+      text-align: center;
     }
     .game {
       margin: 20px 0;
@@ -90,9 +82,9 @@
     }
     iframe {
       width: 100%;
-      height: 400px; /* Adjust as needed */
+      height: 400px;
       border: none;
-      display: none; /* Initially hidden */
+      display: none;
       margin-top: 20px;
     }
   </style>
@@ -102,16 +94,8 @@
     <img src="logo.png" alt="TitanBrix Logo">
   </header>
 
-  <!-- Add 'why.png' Image Below the Logo -->
-  <div class="header-content">
-    <img src="why.png" alt="Why Image">
-    <div class="header-text">
-      <h2>TitanBrix? What the flip is that?!</h2>
-      <p>1) At TitanBrix, we offer a unique platform for you to share your creativity. 2) Submit your games and showcase your work to the world! 3) Our community supports your effort to create without worrying, so join us today and get involved in the fun!</p>
-    </div>
-  </div>
-
-  <div class="container">
+  <div class="flex-container">
+    <!-- Submit Your Game Section -->
     <div class="box">
       <section id="upload-instructions">
         <h2>Submit Your Game</h2>
@@ -127,37 +111,44 @@
         </form>
       </section>
     </div>
+
+    <!-- What is TitanBrix Section -->
     <div class="box">
-      <section id="games-section">
-        <h2>Games</h2>
-        <div id="games-list">
-          <!-- Template Game with redirect on click -->
-          <div class="game">
-            <h3>TEMPLATE</h3>
-            <p>Uploaded by: TitanBrix</p>
-            <a href="https://scratch.mit.edu/projects/1113918259/" target="_blank">Play Game</a>
-          </div>
-
-          <!-- Other games with hidden iframe behavior -->
-          <div class="game">
-            <h3>NOOB SONG!</h3>
-            <p>Uploaded by: Castle_crasher_1000</p>
-            <a href="javascript:void(0);" onclick="showIframe('game2');" aria-label="Play Game - NOOB SONG!">Play Game</a>
-            
-            <!-- Hidden iframe -->
-            <iframe id="game2" src="https://scratch.mit.edu/projects/195654195/embed" allowtransparency="true"></iframe>
-          </div>
-
-          <div class="game">
-            <h3>Coming soooon!</h3>
-            <p>Uploaded by: Another User</p>
-            <a href="javascript:void(0);" onclick="showIframe('game3');" aria-label="Play Game - Coming soooon!">Play Game</a>
-            
-            <!-- Hidden iframe -->
-            <iframe id="game3" src="https://scratch.mit.edu/projects/PROJECT_ID/embed" allowtransparency="true"></iframe>
-          </div>
-        </div>
+      <section>
+        <h2>TitanBrix? What the flip is that?!</h2>
+        <p>1) At TitanBrix, we offer a unique platform for you to share your creativity. 2) Submit your games and showcase your work to the world! 3) Our community supports your effort to create without worrying, so join us today and get involved in the fun!</p>
       </section>
+    </div>
+  </div>
+
+  <div class="container games-section">
+    <h2>Games</h2>
+    <div id="games-list">
+      <!-- Template Game with redirect on click -->
+      <div class="game">
+        <h3>TEMPLATE</h3>
+        <p>Uploaded by: TitanBrix</p>
+        <a href="https://scratch.mit.edu/projects/1113918259/" target="_blank">Play Game</a>
+      </div>
+
+      <!-- Other games with hidden iframe behavior -->
+      <div class="game">
+        <h3>NOOB SONG!</h3>
+        <p>Uploaded by: Castle_crasher_1000</p>
+        <a href="javascript:void(0);" onclick="showIframe('game2');" aria-label="Play Game - NOOB SONG!">Play Game</a>
+        
+        <!-- Hidden iframe -->
+        <iframe id="game2" src="https://scratch.mit.edu/projects/195654195/embed" allowtransparency="true"></iframe>
+      </div>
+
+      <div class="game">
+        <h3>Coming soooon!</h3>
+        <p>Uploaded by: Another User</p>
+        <a href="javascript:void(0);" onclick="showIframe('game3');" aria-label="Play Game - Coming soooon!">Play Game</a>
+        
+        <!-- Hidden iframe -->
+        <iframe id="game3" src="https://scratch.mit.edu/projects/PROJECT_ID/embed" allowtransparency="true"></iframe>
+      </div>
     </div>
   </div>
 
@@ -165,7 +156,6 @@
     // Function to display the iframe when the "Play Game" link is clicked
     function showIframe(gameId) {
       const iframe = document.getElementById(gameId);
-      // Toggle the display property between none and block
       if (iframe.style.display === "none" || iframe.style.display === "") {
         iframe.style.display = "block";
       } else {
