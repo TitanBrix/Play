@@ -18,20 +18,15 @@
       width: 100%;
       overflow: hidden;
       padding-top: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: row;
+      text-align: center;
     }
     header img {
       width: 100%;
       height: auto;
     }
     .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px; /* Space between image and text */
+      text-align: center;
+      margin-top: 20px; /* Space between logo and 'why.png' */
     }
     .header-content img {
       width: 300px; /* Adjust image size as needed */
@@ -39,6 +34,7 @@
     }
     .header-text {
       max-width: 400px; /* Control text width */
+      margin: 0 auto;
     }
     .container {
       max-width: 800px;
@@ -92,16 +88,18 @@
 </head>
 <body>
   <header>
-    <!-- Flexbox container for image and text -->
-    <div class="header-content">
-      <img src="why.png" alt="Why Image">
-      <div class="header-text">
-        <h2>Why Choose TitanBrix?</h2>
-        <p>At TitanBrix, we offer a unique platform for you to share your creativity. Submit your games and showcase your work to the world! Our community supports your effort to create without worrying about copyright issues. Join us today and get involved in the fun!</p>
-      </div>
-    </div>
+    <img src="logo.png" alt="TitanBrix Logo">
   </header>
-  
+
+  <!-- Add 'why.png' Image Below the Logo -->
+  <div class="header-content">
+    <img src="why.png" alt="Why Image">
+    <div class="header-text">
+      <h2>Why Choose TitanBrix?</h2>
+      <p>At TitanBrix, we offer a unique platform for you to share your creativity. Submit your games and showcase your work to the world! Our community supports your effort to create without worrying about copyright issues. Join us today and get involved in the fun!</p>
+    </div>
+  </div>
+
   <div class="container">
     <section id="upload-instructions">
       <h2>Submit Your Game</h2>
