@@ -9,23 +9,23 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-image: url('bg.png'); /* Set bg.png as background image */
-      background-size: cover; /* Ensure the image covers the entire screen */
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Prevent the image from repeating */
+      background-image: url('bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
     header {
       width: 100%;
       overflow: hidden;
     }
     header img {
-      width: 100%; /* Stretch the image across the width */
-      height: auto; /* Maintain aspect ratio */
+      width: 100%;
+      height: auto;
     }
     .container {
       max-width: 800px;
       margin: 20px auto;
-      background: white; /* White background for the content area */
+      background: white;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -59,15 +59,15 @@
     .game h3 {
       margin: 0 0 10px;
     }
-    .game a {
-      color: #6200ea;
-      text-decoration: none;
+    .game iframe {
+      width: 100%;
+      height: 400px; /* You can adjust the height if needed */
+      border: none;
     }
   </style>
 </head>
 <body>
   <header>
-    <!-- Make sure the file name matches the one you uploaded to GitHub -->
     <img src="logo.png" alt="TitanBrix Logo">
   </header>
   
@@ -89,12 +89,14 @@
     <section id="games-section">
       <h2>Games</h2>
       <div id="games-list">
-        <!-- Add more games here manually -->
+        <!-- Game Example with embedded iframe -->
         <div class="game">
           <h3>TEMPLATE</h3>
           <p>Uploaded by: TitanBrix</p>
-          <a href="https://scratch.mit.edu/projects/1113918259/" target="_blank">Play Game</a>
+          <iframe src="https://scratch.mit.edu/projects/1113918259/embed" allowtransparency="true" frameborder="0"></iframe>
         </div>
+        
+        <!-- Add more games here with iframes as needed -->
       </div>
     </section>
   </div>
@@ -114,11 +116,5 @@
       alert('Your submission email has been opened in your email client. Please send the email to complete the submission. Make sure it explains the name, the link, and whether it has been used with our template or not! Include your username.');
     }
   </script>
-
-  <!-- Background Music -->
-  <audio autoplay loop>
-    <source src="bgm.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
 </body>
 </html>
